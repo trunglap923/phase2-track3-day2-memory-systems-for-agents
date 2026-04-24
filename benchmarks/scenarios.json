@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "name": "Profile recall (Name)",
+    "type": "profile",
+    "turns": [
+      {"role": "user", "content": "Chào bạn, mình tên là Linh."},
+      {"role": "user", "content": "Thời tiết hôm nay thế nào?"},
+      {"role": "user", "content": "Bạn có nhớ tên mình là gì không?"}
+    ],
+    "expected_keyword": "Linh"
+  },
+  {
+    "id": 2,
+    "name": "Conflict update (Allergy)",
+    "type": "conflict",
+    "turns": [
+      {"role": "user", "content": "Tôi bị dị ứng sữa bò."},
+      {"role": "user", "content": "Hôm nay ăn gì được nhỉ?"},
+      {"role": "user", "content": "À nhầm, tôi bị dị ứng đậu nành chứ không phải sữa bò."},
+      {"role": "user", "content": "Tôi có bị dị ứng sữa bò không?"}
+    ],
+    "expected_keyword": "không"
+  },
+  {
+    "id": 3,
+    "name": "Conflict update (Allergy recall)",
+    "type": "conflict",
+    "turns": [
+      {"role": "user", "content": "Thế tôi bị dị ứng với cái gì?"}
+    ],
+    "expected_keyword": "đậu nành"
+  },
+  {
+    "id": 4,
+    "name": "Episodic recall (Task completion)",
+    "type": "episodic",
+    "turns": [
+      {"role": "user", "content": "Tôi vừa code xong module trích xuất dữ liệu."},
+      {"role": "user", "content": "Mệt thật đấy."},
+      {"role": "user", "content": "Tôi vừa hoàn thành module gì nhỉ?"}
+    ],
+    "expected_keyword": "trích xuất dữ liệu"
+  },
+  {
+    "id": 5,
+    "name": "Semantic retrieval (FAQ chunk 1)",
+    "type": "semantic",
+    "turns": [
+      {"role": "user", "content": "LangGraph được dùng để làm gì?"}
+    ],
+    "expected_keyword": "stateful"
+  },
+  {
+    "id": 6,
+    "name": "Semantic retrieval (FAQ chunk 2)",
+    "type": "semantic",
+    "turns": [
+      {"role": "user", "content": "Port mặc định của PostgreSQL là bao nhiêu?"}
+    ],
+    "expected_keyword": "5432"
+  },
+  {
+    "id": 7,
+    "name": "Semantic retrieval (Docker config)",
+    "type": "semantic",
+    "turns": [
+      {"role": "user", "content": "Làm sao để kết nối tới database ở một container khác?"}
+    ],
+    "expected_keyword": "hostname"
+  },
+  {
+    "id": 8,
+    "name": "Trim/token budget (Long conversation)",
+    "type": "trim",
+    "turns": [
+      {"role": "user", "content": "Bắt đầu đếm nhé. 1"},
+      {"role": "user", "content": "2"},
+      {"role": "user", "content": "3"},
+      {"role": "user", "content": "4"},
+      {"role": "user", "content": "5"},
+      {"role": "user", "content": "6"},
+      {"role": "user", "content": "7"},
+      {"role": "user", "content": "8"},
+      {"role": "user", "content": "Số đầu tiên chúng ta đếm là gì?"}
+    ],
+    "expected_keyword": "1"
+  },
+  {
+    "id": 9,
+    "name": "Profile recall (Preferences)",
+    "type": "profile",
+    "turns": [
+      {"role": "user", "content": "Tôi thích giao diện dark mode (nền tối)."},
+      {"role": "user", "content": "Tôi thích giao diện màu gì?"}
+    ],
+    "expected_keyword": "tối"
+  },
+  {
+    "id": 10,
+    "name": "Episodic recall (Past decision)",
+    "type": "episodic",
+    "turns": [
+      {"role": "user", "content": "Hôm qua chúng ta đã chốt dùng Redis để cache."},
+      {"role": "user", "content": "Nhắc lại xem hôm qua chúng ta quyết định dùng công nghệ gì để cache?"}
+    ],
+    "expected_keyword": "Redis"
+  }
+]
